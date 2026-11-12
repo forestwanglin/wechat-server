@@ -3,4 +3,7 @@
 upload
 *.exe
 *.db
+.env
+.env.*
+!.env.example
 build
