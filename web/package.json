@@ -26,6 +26,9 @@
       "react-app/jest"
     ]
   },
+  "overrides": {
+    "eslint-plugin-jest": "25.7.0"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
