@@ -68,11 +68,17 @@ func GetUserIDByCode(c *gin.Context) {
 		return
 	}
 	id := common.GetWeChatIDByCode(code)
-	c.JSON(http.StatusOK, gin.H{
+	response := gin.H{
 		"message": "",
 		"success": true,
 		"data":    id,
-	})
+	}
+	if id != "" {
+		if profile := getWeChatUserProfile(id); profile != nil {
+			response["profile"] = profile
+		}
+	}
+	c.JSON(http.StatusOK, response)
 	return
 }
 
